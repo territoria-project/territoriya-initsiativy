@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Территория инициативы — молодёжное добровольческое движение в Иванове.">
+<title>Территория инициативы — действуй вместе с нами</title>
+<style>
+:root{--navy:#142b4a;--blue:#285b87;--sky:#eaf2f8;--gold:#e7ad45;--ink:#1d2938;--muted:#647386;--paper:#fbfaf7;--white:#fff;--line:#e5e9ed;--green:#477c65}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#fbfaf7ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);letter-spacing:-.3px}.mark{width:42px;height:42px;border-radius:14px;background:var(--navy);color:white;display:grid;place-items:center;font-size:22px}.links{display:flex;gap:24px;color:#445367;font-size:14px;font-weight:600}.links a:hover{color:var(--blue)}.navbtn,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:13px 19px;background:var(--gold);color:#192b40;font-weight:800;cursor:pointer;transition:.2s}.navbtn:hover,.btn:hover{transform:translateY(-2px);filter:brightness(.97)}.btn.secondary{background:white;border:1px solid #d9e0e6;color:var(--navy)}.menu{display:none;background:none;border:0;font-size:25px;color:var(--navy)}
+.hero{background:linear-gradient(115deg,#142b4a 0%,#214d72 68%,#2e6686 100%);color:white;padding:88px 0 82px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid #ffffff24;border-radius:50%;right:-100px;top:-220px;box-shadow:0 0 0 55px #ffffff09,0 0 0 110px #ffffff08}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:55px;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800;color:var(--gold)}h1{font-size:clamp(42px,6vw,68px);line-height:1.05;letter-spacing:-2px;margin:16px 0 22px}.hero p{font-size:18px;color:#e1eaf1;max-width:610px;margin:0 0 30px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero .secondary{background:#ffffff14;border-color:#ffffff55;color:white}.hero-art{min-height:310px;display:grid;place-items:center}.orbit{width:280px;height:280px;border-radius:50%;border:1px solid #ffffff4a;display:grid;place-items:center;position:relative}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #ffffff2b;border-radius:50%;inset:28px}.orbit:after{inset:58px}.heart{width:135px;height:135px;border-radius:38px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:68px;transform:rotate(-8deg);box-shadow:0 20px 55px #071a2c66}
+section{padding:76px 0}.section-head{max-width:680px;margin-bottom:34px}.kicker{color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:1.8px;font-weight:800}.section-head h2{font-size:clamp(30px,4vw,42px);line-height:1.15;letter-spacing:-1px;color:var(--navy);margin:10px 0}.section-head p{color:var(--muted);margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-30px;position:relative;z-index:2}.stat{background:white;padding:24px;border-radius:18px;box-shadow:0 12px 35px #142b4a12;border:1px solid var(--line)}.stat strong{display:block;font-size:34px;color:var(--navy);line-height:1.2}.stat span{font-size:13px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}.about-panel{background:var(--sky);border-radius:24px;padding:32px}.about-panel h3{color:var(--navy);margin-top:0}.steps{display:grid;gap:14px}.step{display:flex;gap:14px;align-items:flex-start}.num{flex:0 0 34px;height:34px;border-radius:11px;background:var(--gold);display:grid;place-items:center;font-weight:900;color:var(--navy)}.step b{color:var(--navy)}.step p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.directions{background:#f0f4f6}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 35px #142b4a12}.ico{width:48px;height:48px;border-radius:15px;background:var(--sky);display:grid;place-items:center;font-size:24px;margin-bottom:18px}.card h3{margin:0 0 8px;color:var(--navy);font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.phase{border-top:3px solid var(--gold);background:white;border-radius:0 0 16px 16px;padding:18px 16px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.phase small{color:var(--blue);font-weight:800}.phase h3{font-size:16px;color:var(--navy);margin:8px 0}.phase p{font-size:13px;color:var(--muted);margin:0}
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.target{background:white;border:1px solid var(--line);border-radius:16px;padding:20px}.target strong{font-size:28px;color:var(--navy);display:block}.target span{font-size:14px;color:var(--muted)}.note{font-size:12px;color:var(--muted);margin-top:16px}
+.join{background:var(--navy);color:white}.join-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}.join h2{font-size:40px;line-height:1.12;margin:12px 0}.join p{color:#d4e0e9}.formbox{background:white;color:var(--ink);padding:28px;border-radius:22px}.formbox h3{margin:0 0 18px;color:var(--navy)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:700;color:#435166}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #d9e0e6;border-radius:10px;font:inherit;background:#fff}.field textarea{min-height:90px;resize:vertical}.formbox .btn{width:100%;margin-top:16px}.hint{font-size:11px;color:var(--muted);margin:10px 0 0}.success{display:none;margin-top:14px;padding:12px;border-radius:10px;background:#e9f5ed;color:#245b3b;font-size:14px}
+footer{background:#0d2038;color:#dce5ed;padding:34px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot small{color:#aebdca}.foot a{color:var(--gold)}
+@media(max-width:850px){.links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--paper);padding:18px 24px;flex-direction:column;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.navbtn{display:none}.hero-grid,.about-grid,.join-grid{grid-template-columns:1fr}.hero{padding:65px 0}.hero-art{min-height:220px}.orbit{width:210px;height:210px}.heart{width:105px;height:105px;font-size:52px}.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}section{padding:55px 0}.hero{padding:55px 0}.hero p{font-size:16px}.stats{gap:9px}.stat{padding:17px}.stat strong{font-size:28px}.cards,.target-grid,.timeline{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.foot{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#top"><span class="mark">✦</span><span>ТЕРРИТОРИЯ<br>ИНИЦИАТИВЫ</span></a>
+<nav class="links" id="links"><a href="#about">О проекте</a><a href="#directions">Направления</a><a href="#plan">План</a><a href="#results">Показатели</a><a href="#join">Присоединиться</a></nav>
+<a class="navbtn" href="#join">Стать добровольцем ↗</a><button class="menu" id="menu" aria-label="Открыть меню">☰</button>
+</div></header>
+<main id="top">
+<div class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow">Молодёжное добровольчество · Иваново</div><h1>Твоя инициатива<br>меняет город</h1><p>Объединяем активную молодёжь, сохраняем историческую память и делаем добрые дела вместе. Здесь начинается территория твоих возможностей.</p><div class="hero-actions"><a class="btn" href="#join">Присоединиться к команде</a><a class="btn secondary" href="#directions">Узнать о проекте</a></div></div>
+<div class="hero-art"><div class="orbit"><div class="heart">✦</div></div></div>
+</div></div>
+<div class="wrap stats">
+<div class="stat"><strong>60+</strong><span>планируемых участников</span></div><div class="stat"><strong>12+</strong><span>добровольческих мероприятий</span></div><div class="stat"><strong>400+</strong><span>волонтёрских часов</span></div><div class="stat"><strong>6</strong><span>месяцев реализации проекта</span></div>
+</div>
+<section id="about"><div class="wrap about-grid">
+<div><div class="section-head"><div class="kicker">О проекте</div><h2>Не просто акции — сообщество, которое действует</h2><p>«Территория инициативы» — проект по развитию молодёжного добровольческого движения в городе Иваново. Мы помогаем участникам пройти путь от первого доброго дела до самостоятельной организации общественно полезных инициатив.</p></div><p>К проекту могут присоединиться подростки и молодые люди от 14 до 25 лет: школьники, студенты колледжей и вузов, участники молодёжных и общественных объединений.</p></div>
+<div class="about-panel"><h3>Как ты станешь частью команды?</h3><div class="steps">
+<div class="step"><span class="num">1</span><div><b>Зарегистрируйся</b><p>Расскажи о себе и направлениях, которые тебе интересны.</p></div></div>
+<div class="step"><span class="num">2</span><div><b>Пройди подготовку</b><p>Познакомься с основами добровольчества, командной работы и организации событий.</p></div></div>
+<div class="step"><span class="num">3</span><div><b>Выбери направление</b><p>Присоединяйся к рабочей группе и участвуй в мероприятиях.</p></div></div>
+<div class="step"><span class="num">4</span><div><b>Предложи свою идею</b><p>Разработай инициативу и реализуй её при поддержке команды.</p></div></div>
+</div></div></div></section>
+<section class="directions" id="directions"><div class="wrap"><div class="section-head"><div class="kicker">Чем мы занимаемся</div><h2>Пять направлений — множество способов помочь</h2><p>Выбирай то, что тебе близко. Каждое направление приносит реальную пользу городу и его жителям.</p></div>
+<div class="cards">
+<div class="card"><div class="ico">🏛️</div><h3>Историческая память</h3><p>Памятные акции, благоустройство мемориалов, исторические выставки, викторины и сбор семейных историй.</p></div>
+<div class="card"><div class="ico">🤝</div><h3>Социальная поддержка</h3><p>Адресная помощь пожилым людям, благотворительные сборы и поддержка социальных учреждений.</p></div>
+<div class="card"><div class="ico">🌿</div><h3>Экологическая ответственность</h3><p>Уборка общественных пространств, раздельный сбор отходов и экологическое просвещение.</p></div>
+<div class="card"><div class="ico">🎪</div><h3>Общественная жизнь</h3><p>Помощь в проведении городских и образовательных событий, навигация, регистрация и медиасопровождение.</p></div>
+<div class="card"><div class="ico">💡</div><h3>Молодёжные инициативы</h3><p>Разработка собственных проектов: от идеи и плана до реализации и оценки результата.</p></div>
+<div class="card"><div class="ico">⭐</div><h3>Развитие актива</h3><p>Обучение добровольцев, развитие лидерских навыков и подготовка будущих координаторов.</p></div>
+</div></div></section>
+<section id="plan"><div class="wrap"><div class="section-head"><div class="kicker">Дорожная карта</div><h2>Шесть месяцев от идеи к результату</h2><p>Проект развивается поэтапно: от формирования команды до оценки результатов и планирования дальнейшей работы.</p></div>
+<div class="timeline">
+<div class="phase"><small>1-Й МЕСЯЦ</small><h3>Подготовка</h3><p>Партнёры, материалы, информационная кампания и регистрация.</p></div>
+<div class="phase"><small>2-Й МЕСЯЦ</small><h3>Организация</h3><p>Формирование команды, распределение ролей и вводное обучение.</p></div>
+<div class="phase"><small>3–4-Й МЕСЯЦЫ</small><h3>Практика</h3><p>Проведение мероприятий по основным направлениям.</p></div>
+<div class="phase"><small>5-Й МЕСЯЦ</small><h3>Инициативы</h3><p>Разработка и реализация собственных проектов участников.</p></div>
+<div class="phase"><small>6-Й МЕСЯЦ</small><h3>Итоги</h3><p>Анкетирование, анализ показателей и презентация результатов.</p></div>
+</div></div></section>
+<section id="results" style="background:#f0f4f6"><div class="wrap"><div class="section-head"><div class="kicker">К чему стремимся</div><h2>Плановые показатели проекта</h2><p>Ориентиры, по которым команда будет оценивать ход реализации и достигнутые результаты.</p></div>
+<div class="target-grid">
+<div class="target"><strong>60 человек</strong><span>зарегистрированных участников</span></div><div class="target"><strong>40 человек</strong><span>участников практической деятельности</span></div><div class="target"><strong>12 мероприятий</strong><span>проведённых добровольческих акций</span></div><div class="target"><strong>8 человек</strong><span>подготовленных координаторов</span></div><div class="target"><strong>4 инициативы</strong><span>реализованных проектов участников</span></div><div class="target"><strong>400 часов</strong><span>подтверждённого добровольческого времени</span></div>
+</div><p class="note">* Это предварительные плановые значения из проектной документации, а не фактически достигнутые результаты.</p></div></section>
+<section id="join" class="join"><div class="wrap join-grid">
+<div><div class="eyebrow">Твой первый шаг</div><h2>У каждой большой перемены есть инициатор</h2><p>Хочешь помогать, учиться новому, находить единомышленников и воплощать идеи? Оставь заявку — и стань частью «Территории инициативы».</p><p><b>Возраст участников:</b> 14–25 лет<br><b>Территория проекта:</b> город Иваново</p></div>
+<div class="formbox"><h3>Заявка добровольца</h3><form id="joinForm"><div class="formgrid">
+<div class="field"><label for="name">Имя и фамилия *</label><input id="name" name="name" required placeholder="Как к тебе обращаться?"></div>
+<div class="field"><label for="age">Возраст *</label><input id="age" name="age" type="number" min="14" max="25" required placeholder="14–25"></div>
+<div class="field"><label for="school">Учебное заведение</label><input id="school" name="school" placeholder="Школа, колледж или вуз"></div>
+<div class="field"><label for="contact">Контакт для связи *</label><input id="contact" name="contact" required placeholder="Телефон или e-mail"></div>
+<div class="field full"><label for="direction">Интересующее направление *</label><select id="direction" name="direction" required><option value="">Выбери направление</option><option>Сохранение исторической памяти</option><option>Социальная поддержка населения</option><option>Экологическая ответственность</option><option>Участие в общественной жизни</option><option>Молодёжные инициативы</option><option>Пока не определился(ась)</option></select></div>
+<div class="field full"><label for="aboutme">Расскажи о себе и своей мотивации</label><textarea id="aboutme" name="aboutme" placeholder="Есть ли опыт добровольчества? Какие идеи хотелось бы реализовать?"></textarea></div>
+</div><button class="btn" type="submit">Отправить заявку</button><p class="hint">Демонстрационная форма сайта: данные не отправляются на сервер и не сохраняются. Для реального запуска подключите защищённую форму и обработку персональных данных.</p><div class="success" id="success" role="status">Спасибо! Форма работает в демонстрационном режиме. Для приёма заявок подключите серверную обработку.</div></form></div>
+</div></section>
+</main>
+<footer><div class="wrap foot"><div class="brand" style="color:white"><span class="mark">✦</span><span>ТЕРРИТОРИЯ ИНИЦИАТИВЫ</span></div><small>Проект «Обучение служением» · Иваново · 2026<br>Создано на основе проектной документации команды ДУ-4/25/2.</small><a href="#top">Наверх ↑</a></div></footer>
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.getElementById('joinForm').addEventListener('submit',e=>{e.preventDefault();const age=Number(document.getElementById('age').value);if(age<14||age>25){alert('К проекту приглашаются участники от 14 до 25 лет.');return;}document.getElementById('success').style.display='block';e.target.querySelector('button').textContent='Заявка заполнена';});
+</script>
+</body></html>
