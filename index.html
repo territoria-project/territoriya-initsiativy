@@ -75,7 +75,14 @@ footer{background:#0d2038;color:#dce5ed;padding:34px 0}.foot{display:flex;justif
 <div class="field"><label for="contact">Контакт для связи *</label><input id="contact" name="contact" required placeholder="Телефон или e-mail"></div>
 <div class="field full"><label for="direction">Интересующее направление *</label><select id="direction" name="direction" required><option value="">Выбери направление</option><option>Сохранение исторической памяти</option><option>Социальная поддержка населения</option><option>Экологическая ответственность</option><option>Участие в общественной жизни</option><option>Молодёжные инициативы</option><option>Пока не определился(ась)</option></select></div>
 <div class="field full"><label for="aboutme">Расскажи о себе и своей мотивации</label><textarea id="aboutme" name="aboutme" placeholder="Есть ли опыт добровольчества? Какие идеи хотелось бы реализовать?"></textarea></div>
-</div><button class="btn" type="submit">Отправить заявку</button><p class="hint">Демонстрационная форма сайта: данные не отправляются на сервер и не сохраняются. Для реального запуска подключите защищённую форму и обработку персональных данных.</p><div class="success" id="success" role="status">Спасибо! Форма работает в демонстрационном режиме. Для приёма заявок подключите серверную обработку.</div></form></div>
+</div>
+<div class="field full">
+<label>
+<input type="checkbox" id="consent" required>
+Я подтверждаю согласие на обработку персональных данных *
+</label>
+</div>
+<button class="btn" type="submit">Отправить заявку</button><p class="hint">Демонстрационная форма сайта: данные не отправляются на сервер и не сохраняются. Для реального запуска подключите защищённую форму и обработку персональных данных.</p><div class="success" id="success" role="status">Спасибо! Форма работает в демонстрационном режиме. Для приёма заявок подключите серверную обработку.</div></form></div>
 </div></section>
 </main>
 <footer><div class="wrap foot"><div class="brand" style="color:white"><span class="mark">✦</span><span>ТЕРРИТОРИЯ ИНИЦИАТИВЫ</span></div><small>Проект «Обучение служением» · Иваново · 2026<br>Создано на основе проектной документации команды ДУ-4/25/2.</small><a href="#top">Наверх ↑</a></div></footer>
@@ -83,6 +90,61 @@ footer{background:#0d2038;color:#dce5ed;padding:34px 0}.foot{display:flex;justif
 const menu=document.getElementById('menu'),links=document.getElementById('links');
 menu.addEventListener('click',()=>links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-document.getElementById('joinForm').addEventListener('submit',e=>{e.preventDefault();const age=Number(document.getElementById('age').value);if(age<14||age>25){alert('К проекту приглашаются участники от 14 до 25 лет.');return;}document.getElementById('success').style.display='block';e.target.querySelector('button').textContent='Заявка заполнена';});
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyh_7FNO5b570vl65ENkYaHqsHI_qvenNwKE4X3Iud_FZ7Ks4OdN1rIkCrPOzzJ59oc/exec";
+
+document.getElementById('joinForm').addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const form = e.target;
+  const age = Number(form.age.value);
+
+  if (age < 14 || age > 25) {
+    alert('К проекту приглашаются участники от 14 до 25 лет.');
+    return;
+  }
+
+  if (!document.getElementById('consent').checked) {
+    alert('Необходимо подтвердить согласие.');
+    return;
+  }
+
+  const data = {
+    name: form.name.value.trim(),
+    age: age,
+    school: form.school.value.trim(),
+    contact: form.contact.value.trim(),
+    direction: form.direction.value,
+    experience: form.aboutme.value.trim(),
+    consent: true
+  };
+
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = 'Отправляем...';
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(data)
+    });
+
+    document.getElementById('success').textContent =
+      'Форма отправлена. Проверьте появление заявки в таблице.';
+    document.getElementById('success').style.display = 'block';
+    button.textContent = 'Заявка отправлена';
+    form.reset();
+
+  } catch (error) {
+    alert('Не удалось отправить заявку. Попробуйте ещё раз.');
+    button.disabled = false;
+    button.textContent = 'Отправить заявку';
+  }
+});
+
 </script>
 </body></html>
