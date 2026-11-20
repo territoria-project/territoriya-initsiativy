@@ -82,7 +82,9 @@ footer{background:#0d2038;color:#dce5ed;padding:34px 0}.foot{display:flex;justif
 Я подтверждаю согласие на обработку персональных данных *
 </label>
 </div>
-<button class="btn" type="submit">Отправить заявку</button><p class="hint">Демонстрационная форма сайта: данные не отправляются на сервер и не сохраняются. Для реального запуска подключите защищённую форму и обработку персональных данных.</p><div class="success" id="success" role="status">Спасибо! Форма работает в демонстрационном режиме. Для приёма заявок подключите серверную обработку.</div></form></div>
+<button class="btn" type="submit">Отправить заявку</button>
+<div class="success" id="success" role="status">Сайт проекта работает в тестовом режиме, но ваша будет отправлена. Спасибо за интерес к «Территории инициативы»!</div>
+</form></div>
 </div></section>
 </main>
 <footer><div class="wrap foot"><div class="brand" style="color:white"><span class="mark">✦</span><span>ТЕРРИТОРИЯ ИНИЦИАТИВЫ</span></div><small>Проект «Обучение служением» · Иваново · 2026<br>Создано на основе проектной документации команды ДУ-4/25/2.</small><a href="#top">Наверх ↑</a></div></footer>
@@ -134,9 +136,9 @@ document.getElementById('joinForm').addEventListener('submit', async e => {
     });
 
     document.getElementById('success').textContent =
-      'Форма отправлена. Проверьте появление заявки в таблице.';
-    document.getElementById('success').style.display = 'block';
-    button.textContent = 'Заявка отправлена';
+  'Ваша заявка успешно отправлена и сохранена.';
+document.getElementById('success').style.display = 'block';
+button.textContent = 'Заявка отправлена';
     form.reset();
 
   } catch (error) {
